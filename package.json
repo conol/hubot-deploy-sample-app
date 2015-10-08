@@ -1,0 +1,14 @@
+{
+  "name": "sample",
+  "dependencies": {
+    "browserify": "~> 10.2.4",
+    "browserify-incremental": "^3.0.1",
+    "coffeeify": "~> 0.6",
+    "jquery": "^2.1.4",
+    "underscore": "^1.8.3"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": "~> 4.1"
+  }
+}
