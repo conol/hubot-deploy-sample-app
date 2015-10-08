@@ -21,14 +21,14 @@ deployment:
   development:
     branch: release/development
     commands:
-      - bundle exec cap development deploy
+      - eval $(ssh-agent) && ssh-add $HOME/.ssh/id_circleci_github && bundle exec cap development deploy
 
   staging:
     branch: release/staging
     commands:
-      - bundle exec cap staging deploy
+      - eval $(ssh-agent) && ssh-add $HOME/.ssh/id_circleci_github && bundle exec cap staging deploy
 
   production:
     branch: release/production
     commands:
-      - bundle exec cap production deploy
+      - eval $(ssh-agent) && ssh-add $HOME/.ssh/id_circleci_github && bundle exec cap production deploy
