@@ -13,22 +13,18 @@ checkout:
     - cp config/secrets.yml.sample config/secrets.yml
     - cp config/database.yml.sample config/database.yml
 
-test:
-  pre:
-    - RAILS_ENV=test bin/rake npm:install
-
 deployment:
   development:
     branch: release/development
     commands:
-      - eval $(ssh-agent) && ssh-add $HOME/.ssh/id_circleci_github && bundle exec cap development deploy
+      - ./circle_ci-deploy.sh release/development development
 
   staging:
     branch: release/staging
     commands:
-      - eval $(ssh-agent) && ssh-add $HOME/.ssh/id_circleci_github && bundle exec cap staging deploy
+      - ./circle_ci-deploy.sh release/staging staging
 
   production:
     branch: release/production
     commands:
-      - eval $(ssh-agent) && ssh-add $HOME/.ssh/id_circleci_github && bundle exec cap production deploy
+      - ./circle_ci-deploy.sh release/production production
