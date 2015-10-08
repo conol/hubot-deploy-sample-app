@@ -7,6 +7,12 @@ set :repo_url, 'git@github.com:conol/hubot-deploy-sample-app.git'
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
+if ENV['REVISION'].nil?
+  ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
+else
+  set :branch, ENV['REVISION']
+end
+
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/home/ubuntu/app/#{fetch :application}-#{fetch :stage}"
 
