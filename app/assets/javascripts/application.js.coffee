@@ -3,4 +3,5 @@ _ = require 'underscore'
 hi = require 'hi'
 
 $ ->
-  _.each [undefined, 'Anonymous'], hi
+  _.each [undefined, 'Anonymous'], (name) ->
+    console.log hi(name)
