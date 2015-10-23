@@ -25,6 +25,7 @@ module Sample
 
     config.assets.paths << Rails.root.join('node_modules')
 
+    config.browserify_rails.paths << -> (path) { path.start_with?(Rails.root.join('spec').to_s) }
     config.browserify_rails.commandline_options = '-t coffeeify --extension=".js.coffee"'
   end
 end
