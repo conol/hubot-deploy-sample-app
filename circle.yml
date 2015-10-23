@@ -13,6 +13,12 @@ checkout:
     - cp config/secrets.yml.sample config/secrets.yml
     - cp config/database.yml.sample config/database.yml
 
+test:
+  override:
+    - ./bin/rake spec spec:javascript:
+        environment:
+          RAILS_ENV: test
+
 deployment:
   development:
     branch: release/development
